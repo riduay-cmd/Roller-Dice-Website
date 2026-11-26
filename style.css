@@ -1,0 +1,296 @@
+/* ==================== PORTRAIT & MOBILE OPTIMIZATIONS ==================== */
+
+/* Default portrait optimizations */
+@media (max-width: 768px) and (orientation: portrait) {
+    body {
+        padding: 0.8rem;
+    }
+    
+    .app-container {
+        padding: 1rem;
+        border-radius: 1.8rem;
+    }
+    
+    /* Header adjustments */
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .icon-moon, .icon-sparkle {
+        font-size: 1.5rem;
+    }
+    
+    .badge-group {
+        gap: 0.4rem;
+    }
+    
+    .badge {
+        padding: 0.25rem 0.8rem;
+        font-size: 0.65rem;
+    }
+    
+    /* Dice size for portrait */
+    .dice {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .face {
+        border-radius: 20px;
+    }
+    
+    .pip {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .face2, .face3, .face4, .face5 {
+        gap: 4px;
+        padding: 10px;
+    }
+    
+    .face6 {
+        gap: 6px;
+        padding: 12px;
+    }
+    
+    /* Roll button */
+    .roll-btn {
+        padding: 10px 24px;
+        font-size: 0.95rem;
+    }
+    
+    /* Current roll display */
+    .current-roll-card {
+        padding: 0.4rem 1.2rem;
+    }
+    
+    .current-value {
+        font-size: 1.8rem;
+    }
+    
+    /* Stats grid - 2 columns for portrait */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .stat-card {
+        padding: 0.6rem;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem;
+    }
+    
+    .stat-icon {
+        font-size: 1.1rem;
+    }
+    
+    /* Probability bars */
+    .bar-item {
+        margin: 0.4rem 0;
+    }
+    
+    .bar-label {
+        width: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .bar-bg {
+        height: 24px;
+    }
+    
+    .bar-fill {
+        font-size: 0.6rem;
+        padding-right: 6px;
+    }
+    
+    /* Histogram */
+    .histogram-container {
+        gap: 0.6rem;
+    }
+    
+    .hist-bar {
+        width: 40px;
+    }
+    
+    .hist-rect {
+        width: 30px;
+    }
+    
+    .hist-label {
+        font-size: 0.7rem;
+    }
+    
+    /* History */
+    .history-badge {
+        padding: 4px 12px;
+        font-size: 0.75rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        gap: 0.5rem;
+        font-size: 0.6rem;
+    }
+    
+    .footer-note {
+        font-size: 0.55rem;
+    }
+}
+
+/* Extra small phones (portrait) */
+@media (max-width: 480px) and (orientation: portrait) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .app-container {
+        padding: 0.8rem;
+        border-radius: 1.2rem;
+    }
+    
+    .header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .icon-moon, .icon-sparkle {
+        font-size: 1.2rem;
+    }
+    
+    .subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .dice {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .face {
+        border-radius: 16px;
+    }
+    
+    .pip {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .face2, .face3, .face4, .face5 {
+        gap: 3px;
+        padding: 8px;
+    }
+    
+    .roll-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+    
+    .current-value {
+        font-size: 1.5rem;
+    }
+    
+    .current-roll-card .label {
+        font-size: 0.7rem;
+    }
+    
+    .stats-grid {
+        gap: 0.5rem;
+    }
+    
+    .stat-card {
+        padding: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.55rem;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .section-header h3 {
+        font-size: 0.8rem;
+    }
+    
+    .theoretical-note {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .empirical-title {
+        font-size: 0.7rem;
+    }
+    
+    .hist-bar {
+        width: 32px;
+    }
+    
+    .hist-rect {
+        width: 24px;
+    }
+    
+    .clear-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.65rem;
+    }
+}
+
+/* Landscape orientation for phones - adjust layout */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .app-container {
+        padding: 0.8rem;
+    }
+    
+    .dice-section {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .dice {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .history-list {
+        max-height: 60px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .badge-group {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Tablet portrait */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .dice {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .pip {
+        width: 20px;
+        height: 20px;
+    }
+}

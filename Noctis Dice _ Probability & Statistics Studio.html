@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en" suppresshydrationwarning="true" data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Noctis Dice | Probability &amp; Statistics Studio</title>
+    <link rel="stylesheet" href="./Noctis Dice _ Probability &amp; Statistics Studio_files/style.css">
+    <link href="./Noctis Dice _ Probability &amp; Statistics Studio_files/css2" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-orb-1"></div>
+    <div class="bg-orb-2"></div>
+    <div class="bg-orb-3"></div>
+    <div class="bg-grid"></div>
+    
+    <div class="app-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-badge">
+                <span class="pulse-dot"></span>
+                STATISTICAL ANALYSIS ENGINE
+            </div>
+            <h1>
+                <span class="icon-moon">🌙</span>
+                NOCTIS DICE
+                <span class="icon-sparkle">✨</span>
+            </h1>
+            <p class="subtitle">probability · statistics · chi-square validation · empirical analysis</p>
+            <div class="badge-group">
+                <span class="badge">📐 Fair Die (1–6)</span>
+                <span class="badge">🎯 Theoretical P = 1/6 ≈ 16.67%</span>
+                <span class="badge">🔬 Real-time Chi-Square Test</span>
+                <span class="badge">📊 Law of Large Numbers</span>
+            </div>
+        </div>
+
+        <!-- Dice & Roll Section -->
+        <div class="dice-section">
+            <div class="dice-container">
+                <div class="dice" id="magicDice" data-value="1">
+                    <div class="face face1" style="transform: translateZ(75px);"><div class="pip"></div></div>
+                    <div class="face face2" style="transform: rotateY(180deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face3" style="transform: rotateY(-90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face4" style="transform: rotateY(90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face5" style="transform: rotateX(-90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face6" style="transform: rotateX(90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="roll-btn" id="rollButton">
+                <span>🌙</span> ROLL THE DICE <span>✨</span>
+            </button>
+            <div class="current-roll-card">
+                <span class="label">current roll</span>
+                <span class="current-value" id="currentRollValue">—</span>
+            </div>
+        </div>
+
+        <!-- Statistical Dashboard -->
+        <div class="stats-dashboard">
+            <div class="section-header">
+                <h3>📈 statistical dashboard</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🔢</div>
+                    <div class="stat-label">total rolls (n)</div>
+                    <div class="stat-value" id="totalRolls">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-label">sample mean (x̄)</div>
+                    <div class="stat-value" id="sampleMean">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📉</div>
+                    <div class="stat-label">variance (σ²)</div>
+                    <div class="stat-value" id="variance">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📐</div>
+                    <div class="stat-label">std deviation (σ)</div>
+                    <div class="stat-value" id="stdDev">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-label">expected value e(x)</div>
+                    <div class="stat-value">3.5000</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-label">margin of error (95%)</div>
+                    <div class="stat-value" id="marginError">—</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Probability Analysis -->
+        <div class="probability-section">
+            <div class="section-header">
+                <h3>🎯 probability analysis</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="theoretical-note">
+                <span class="theo-icon">📐</span>
+                <span>theoretical probability: p(each face) = 1/6 ≈ 16.67%</span>
+            </div>
+            <div class="empirical-title">📊 empirical probability (current session)</div>
+            <div class="prob-bars" id="empiricalBars"><div class="bar-item">
+                <div class="bar-label">1</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div><div class="bar-item">
+                <div class="bar-label">2</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div><div class="bar-item">
+                <div class="bar-label">3</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div><div class="bar-item">
+                <div class="bar-label">4</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div><div class="bar-item">
+                <div class="bar-label">5</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div><div class="bar-item">
+                <div class="bar-label">6</div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: 0.0%;">-</div>
+                </div>
+            </div></div>
+        </div>
+
+        <!-- Chi-Square Test -->
+        <div class="chi-square-card">
+            <div class="section-header">
+                <h3>🔬 chi-square goodness-of-fit test</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="chi-content">
+                <div class="chi-stat">
+                    <span class="chi-label">χ² statistic:</span>
+                    <span class="chi-value" id="chiSquareValue">—</span>
+                </div>
+                <div class="chi-stat">
+                    <span class="chi-label">critical value (α=0.05, df=5):</span>
+                    <span class="chi-value">11.070</span>
+                </div>
+                <div class="chi-stat">
+                    <span class="chi-label">p-value (approx):</span>
+                    <span class="chi-value" id="pValue">—</span>
+                </div>
+                <div class="chi-conclusion" id="chiConclusion" style="background: rgba(45, 48, 75, 0.5); color: rgb(158, 172, 201); border: 1px solid rgba(200, 180, 140, 0.15);">roll at least once to perform chi-square goodness-of-fit test</div>
+            </div>
+        </div>
+
+        <!-- Distribution Histogram -->
+        <div class="histogram-section">
+            <div class="section-header">
+                <h3>📊 roll distribution histogram</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="histogram-container" id="histogram"><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">1<br>(0)</div>
+            </div><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">2<br>(0)</div>
+            </div><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">3<br>(0)</div>
+            </div><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">4<br>(0)</div>
+            </div><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">5<br>(0)</div>
+            </div><div class="hist-bar">
+                <div class="hist-rect" style="height: 4px;"></div>
+                <div class="hist-label">6<br>(0)</div>
+            </div></div>
+        </div>
+
+        <!-- Roll History -->
+        <div class="history-section">
+            <div class="history-header">
+                <div class="history-title">
+                    <span>📜 roll history</span>
+                    <span class="history-count" id="historyCount">(no rolls yet)</span>
+                </div>
+                <button id="clearHistoryBtn" class="clear-btn">
+                    <span>⟳</span> reset session
+                </button>
+            </div>
+            <div id="historyList" class="history-list"><div style="color: #7a88a5; padding: 0.5rem;">✨ no rolls yet — tap the dice to begin ✨</div></div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <span>✦ probability &amp; statistics integration</span>
+                <span class="footer-divider">•</span>
+                <span>✦ chi-square test for fairness</span>
+                <span class="footer-divider">•</span>
+                <span>✦ law of large numbers</span>
+            </div>
+            <div class="footer-note">real-time statistical analysis | data persists locally</div>
+        </footer>
+    </div>
+
+    <script src="./Noctis Dice _ Probability &amp; Statistics Studio_files/script.js.download"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

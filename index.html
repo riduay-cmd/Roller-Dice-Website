@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Noctis Dice | Probability & Statistics Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-orb-1"></div>
+    <div class="bg-orb-2"></div>
+    <div class="bg-orb-3"></div>
+    <div class="bg-grid"></div>
+    
+    <div class="app-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-badge">
+                <span class="pulse-dot"></span>
+                STATISTICAL ANALYSIS ENGINE
+            </div>
+            <h1>
+                <span class="icon-moon">🌙</span>
+                NOCTIS DICE
+                <span class="icon-sparkle">✨</span>
+            </h1>
+            <p class="subtitle">probability · statistics · chi-square validation · empirical analysis</p>
+            <div class="badge-group">
+                <span class="badge">📐 Fair Die (1–6)</span>
+                <span class="badge">🎯 Theoretical P = 1/6 ≈ 16.67%</span>
+                <span class="badge">🔬 Real-time Chi-Square Test</span>
+                <span class="badge">📊 Law of Large Numbers</span>
+            </div>
+        </div>
+
+        <!-- Dice & Roll Section -->
+        <div class="dice-section">
+            <div class="dice-container">
+                <div class="dice" id="magicDice" data-value="1">
+                    <div class="face face1" style="transform: translateZ(75px);"><div class="pip"></div></div>
+                    <div class="face face2" style="transform: rotateY(180deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face3" style="transform: rotateY(-90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face4" style="transform: rotateY(90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face5" style="transform: rotateX(-90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                    <div class="face face6" style="transform: rotateX(90deg) translateZ(75px);">
+                        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="roll-btn" id="rollButton">
+                <span>🌙</span> ROLL THE DICE <span>✨</span>
+            </button>
+            <div class="current-roll-card">
+                <span class="label">current roll</span>
+                <span class="current-value" id="currentRollValue">—</span>
+            </div>
+        </div>
+
+        <!-- Statistical Dashboard -->
+        <div class="stats-dashboard">
+            <div class="section-header">
+                <h3>📈 statistical dashboard</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🔢</div>
+                    <div class="stat-label">total rolls (n)</div>
+                    <div class="stat-value" id="totalRolls">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-label">sample mean (x̄)</div>
+                    <div class="stat-value" id="sampleMean">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📉</div>
+                    <div class="stat-label">variance (σ²)</div>
+                    <div class="stat-value" id="variance">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📐</div>
+                    <div class="stat-label">std deviation (σ)</div>
+                    <div class="stat-value" id="stdDev">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-label">expected value e(x)</div>
+                    <div class="stat-value">3.5000</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-label">margin of error (95%)</div>
+                    <div class="stat-value" id="marginError">—</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Probability Analysis -->
+        <div class="probability-section">
+            <div class="section-header">
+                <h3>🎯 probability analysis</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="theoretical-note">
+                <span class="theo-icon">📐</span>
+                <span>theoretical probability: p(each face) = 1/6 ≈ 16.67%</span>
+            </div>
+            <div class="empirical-title">📊 empirical probability (current session)</div>
+            <div class="prob-bars" id="empiricalBars"></div>
+        </div>
+
+        <!-- Chi-Square Test -->
+        <div class="chi-square-card">
+            <div class="section-header">
+                <h3>🔬 chi-square goodness-of-fit test</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="chi-content">
+                <div class="chi-stat">
+                    <span class="chi-label">χ² statistic:</span>
+                    <span class="chi-value" id="chiSquareValue">—</span>
+                </div>
+                <div class="chi-stat">
+                    <span class="chi-label">critical value (α=0.05, df=5):</span>
+                    <span class="chi-value">11.070</span>
+                </div>
+                <div class="chi-stat">
+                    <span class="chi-label">p-value (approx):</span>
+                    <span class="chi-value" id="pValue">—</span>
+                </div>
+                <div class="chi-conclusion" id="chiConclusion"></div>
+            </div>
+        </div>
+
+        <!-- Distribution Histogram -->
+        <div class="histogram-section">
+            <div class="section-header">
+                <h3>📊 roll distribution histogram</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="histogram-container" id="histogram"></div>
+        </div>
+
+        <!-- Roll History -->
+        <div class="history-section">
+            <div class="history-header">
+                <div class="history-title">
+                    <span>📜 roll history</span>
+                    <span class="history-count" id="historyCount">(last 20 rolls)</span>
+                </div>
+                <button id="clearHistoryBtn" class="clear-btn">
+                    <span>⟳</span> reset session
+                </button>
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <span>✦ probability & statistics integration</span>
+                <span class="footer-divider">•</span>
+                <span>✦ chi-square test for fairness</span>
+                <span class="footer-divider">•</span>
+                <span>✦ law of large numbers</span>
+            </div>
+            <div class="footer-note">real-time statistical analysis | data persists locally</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
